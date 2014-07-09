@@ -1,4 +1,6 @@
-package main
+// The yo package provides an api client for the Yo app api,
+// with methods to send Yo's to users.
+package yo
 
 import (
 	"errors"
