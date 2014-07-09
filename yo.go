@@ -6,18 +6,23 @@ import (
 	"net/url"
 )
 
+// Yo API endpoint.
 var YO_API = "http://api.justyo.co"
 
+// Yo API Client.
 type Client struct {
 	Token string
 }
 
+// Creates a new Client.
 func NewClient(token string) *Client {
 	return &Client{
 		Token: token,
 	}
 }
 
+// Sends a "Yo" to all users who subscribe to the active
+// account. Expects a 201 response.
 func (c *Client) YoAll() error {
 	data := url.Values{}
 	data.Set("api_token", c.Token)
@@ -35,6 +40,8 @@ func (c *Client) YoAll() error {
 	return nil
 }
 
+// Sends a "Yo" to the specified user (who must subscribe)
+// to the active account. Expects a 201 response.
 func (c *Client) YoUser(username string) error {
 	data := url.Values{}
 	data.Set("api_token", c.Token)

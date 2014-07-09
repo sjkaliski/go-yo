@@ -7,11 +7,14 @@ import (
 )
 
 var (
+	// Test Yo Client.
 	testClient *Client
+	testToken  = "some_token"
+	testUser   = "some_user"
 )
 
 func init() {
-	testClient = NewClient("some_token")
+	testClient = NewClient(testToken)
 	return
 }
 
@@ -34,7 +37,7 @@ func TestYoUser(t *testing.T) {
 	defer server.Close()
 	YO_API = server.URL
 
-	if err := testClient.YoUser("some_user"); err != nil {
+	if err := testClient.YoUser(testUser); err != nil {
 		t.Fatal(err)
 	}
 }
