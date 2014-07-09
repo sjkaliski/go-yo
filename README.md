@@ -3,6 +3,8 @@ go-yo
 
 Golang client for the Yo API
 
+***Documentation***: http://godoc.org/github.com/sjkaliski/go-yo
+
 ## Usage
 
 With token in hand, to create a new Yo client simply
