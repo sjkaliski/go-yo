@@ -48,7 +48,7 @@ func (c *Client) YoUser(username string) error {
 	data := url.Values{}
 	data.Set("api_token", c.Token)
 	data.Set("username", username)
-	res, err := http.PostForm(YO_API+"/yoall/", data)
+	res, err := http.PostForm(YO_API+"/yo/", data)
 	if err != nil {
 		return err
 	}
