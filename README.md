@@ -7,6 +7,8 @@ Golang client for the Yo API
 
 ***Build Status***: [![Build Status](https://travis-ci.org/sjkaliski/go-yo.png)](https://travis-ci.org/sjkaliski/go-yo)
 
+***API Info***: https://medium.com/@YoAppStatus/yo-developers-api-e7f2f0ec5c3c
+
 ## Usage
 
 With token in hand, to create a new Yo client simply
