@@ -62,6 +62,16 @@ func TestYoUserLink(t *testing.T) {
 	}
 }
 
+func TestYoSubscribersCount(t *testing.T) {
+	server := httptest.NewServer(http.HandlerFunc(yoUserHandler))
+	defer server.Close()
+	YO_API = server.URL
+
+	if err := testClient.YoSubscribersCount(); err != nil {
+		t.Fatal(err)
+	}
+}
+
 func yoUserHandler(rw http.ResponseWriter, req *http.Request) {
 	rw.WriteHeader(http.StatusCreated)
 }
