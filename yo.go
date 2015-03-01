@@ -105,7 +105,7 @@ func (c *Client) YoUserLink(username, link string) error {
 }
 
 // SubscribersCount gets the count of the current user.
-func (c *Client) SubscribersCount() error {
+func (c *Client) YoSubscribersCount() error {
 	res, err := http.Get(YO_API+"/subscribers_count/?api_token="+c.Token)
 	if err != nil {
 		return err
