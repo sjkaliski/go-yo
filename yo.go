@@ -24,7 +24,7 @@ func NewClient(token string) *Client {
 }
 
 // Sends a "Yo" to all users who subscribe to the active
-// account. Expects a 201 response.
+// account. Expects a 200 response.
 func (c *Client) YoAll() error {
 	data := url.Values{}
 	data.Set("api_token", c.Token)
@@ -35,8 +35,8 @@ func (c *Client) YoAll() error {
 
 	defer res.Body.Close()
 
-	if res.StatusCode != http.StatusCreated {
-		return errors.New("Received response with non 201 status code.")
+	if res.StatusCode != http.StatusOK {
+		return errors.New("Received response with non 200 status code.")
 	}
 
 	return nil
@@ -56,15 +56,15 @@ func (c *Client) YoAllLink(link string) error {
 
 	defer res.Body.Close()
 
-	if res.StatusCode != http.StatusCreated {
-		return errors.New("Received response with non 201 status code.")
+	if res.StatusCode != http.StatusOK {
+		return errors.New("Received response with non 200 status code.")
 	}
 
 	return nil
 }
 
 // Sends a "Yo" to the specified user (who must subscribe)
-// to the active account. Expects a 201 response.
+// to the active account. Expects a 200 response.
 func (c *Client) YoUser(username string) error {
 	data := url.Values{}
 	data.Set("api_token", c.Token)
@@ -76,15 +76,15 @@ func (c *Client) YoUser(username string) error {
 
 	defer res.Body.Close()
 
-	if res.StatusCode != http.StatusCreated {
-		return errors.New("Received response with non 201 status code.")
+	if res.StatusCode != http.StatusOK {
+		return errors.New("Received response with non 200 status code.")
 	}
 
 	return nil
 }
 
 // YoUserLink sends a "Yo" to the specified user (who must subscribe) with a link
-// to the active account. Expects a 201 response.
+// to the active account. Expects a 200 response.
 func (c *Client) YoUserLink(username, link string) error {
 	data := url.Values{}
 	data.Set("api_token", c.Token)
@@ -97,8 +97,8 @@ func (c *Client) YoUserLink(username, link string) error {
 
 	defer res.Body.Close()
 
-	if res.StatusCode != http.StatusCreated {
-		return errors.New("Received response with non 201 status code.")
+	if res.StatusCode != http.StatusOK {
+		return errors.New("Received response with non 200 status code.")
 	}
 
 	return nil
