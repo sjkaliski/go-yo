@@ -39,7 +39,7 @@ func TestYoAllLink(t *testing.T) {
 }
 
 func yoAllHandler(rw http.ResponseWriter, req *http.Request) {
-	rw.WriteHeader(http.StatusCreated)
+	rw.WriteHeader(http.StatusOK)
 }
 
 func TestYoUser(t *testing.T) {
@@ -63,5 +63,5 @@ func TestYoUserLink(t *testing.T) {
 }
 
 func yoUserHandler(rw http.ResponseWriter, req *http.Request) {
-	rw.WriteHeader(http.StatusCreated)
+	rw.WriteHeader(http.StatusOK)
 }
