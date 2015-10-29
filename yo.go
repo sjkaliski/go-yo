@@ -63,6 +63,27 @@ func (c *Client) YoAllLink(link string) error {
 	return nil
 }
 
+// YoAllLocation sends a "Yo" to all subscribed users of the API account
+// with the location specified. ("41.0256377,28.9719802")
+func (c *Client) YoAllLocation(location string) error {
+	data := url.Values{}
+	data.Set("api_token", c.Token)
+	data.Set("location", location)
+
+	res, err := http.PostForm(YO_API+"/yoall/", data)
+	if err != nil {
+		return err
+	}
+
+	defer res.Body.Close()
+
+	if res.StatusCode != http.StatusCreated {
+		return errors.New("Received response with non 201 status code.")
+	}
+
+	return nil
+}
+
 // Sends a "Yo" to the specified user (who must subscribe)
 // to the active account. Expects a 201 response.
 func (c *Client) YoUser(username string) error {
@@ -90,6 +111,27 @@ func (c *Client) YoUserLink(username, link string) error {
 	data.Set("api_token", c.Token)
 	data.Set("username", username)
 	data.Set("link", link)
+	res, err := http.PostForm(YO_API+"/yo/", data)
+	if err != nil {
+		return err
+	}
+
+	defer res.Body.Close()
+
+	if res.StatusCode != http.StatusCreated {
+		return errors.New("Received response with non 201 status code.")
+	}
+
+	return nil
+}
+
+// YoUserLocation sends a "Yo" to the specified user (who must subscribe) with a location ("41.0256377,28.9719802")
+// to the active account. Expects a 201 response.
+func (c *Client) YoUserLocation(username, location string) error {
+	data := url.Values{}
+	data.Set("api_token", c.Token)
+	data.Set("username", username)
+	data.Set("location", location)
 	res, err := http.PostForm(YO_API+"/yo/", data)
 	if err != nil {
 		return err
